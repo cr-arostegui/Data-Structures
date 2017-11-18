@@ -52,6 +52,26 @@ public class BinaryTree {
 				this.right.printInOrder();
 			}
 		}
+		
+		private void printPreOrder() {
+			System.out.println(this.data);
+			if (this.left != null) {
+				this.left.printInOrder();
+			}
+			if (this.right != null) {
+				this.right.printInOrder();
+			}
+		}
+		
+		private void printPostOrder() {
+			if (this.left != null) {
+				this.left.printInOrder();
+			}
+			if (this.right != null) {
+				this.right.printInOrder();
+			}
+			System.out.println(this.data);
+		}
 	}
 
 }

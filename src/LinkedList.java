@@ -1,4 +1,13 @@
 public class LinkedList {
+	
+	class Node {
+		int data;
+		Node next;
+		public Node(int data) {
+			this.data = data;
+		}
+	}
+	
 	Node head;
 	
 	public void append(int data) {
@@ -32,9 +41,32 @@ public class LinkedList {
 		}
 	}
 	
+	public void printList() {
+		if(this.head != null) {
+			System.out.println(this.head.data);
+			Node nextToPrint = this.head.next;
+			while(nextToPrint != null) {
+				System.out.println(nextToPrint.data);
+				nextToPrint = nextToPrint.next;
+			}
+		} else {
+			System.out.println("Linked list is empty.");
+		}
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		LinkedList list = new LinkedList();
+		list.append(1);
+		list.append(2);
+		list.append(3);
+		list.append(4);
+		list.printList();
+		list.prepend(0);
+		System.out.println("After prepend 0");
+		list.printList();
+		list.deleteWithValue(3);
+		System.out.println("After delete 3");
+		list.printList();
 	}
 
 }

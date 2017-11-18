@@ -1,10 +1,9 @@
-package binaryTree;
-//inorder tree
+
 public class BinaryTree {
 
-	class Node {
-		int data;
-		Node left, right;
+	public static class Node {
+		private int data;
+		private Node left, right;
 		
 		public Node (int data) {
 			this.data = data;
@@ -72,6 +71,24 @@ public class BinaryTree {
 			}
 			System.out.println(this.data);
 		}
+	}
+	
+	public static void main(String[] args) {
+		BinaryTree.Node tree = new BinaryTree.Node(6);
+		tree.insert(2);
+		tree.insert(3);
+		tree.insert(1);
+		tree.insert(5);
+		tree.insert(9);
+		tree.insert(7);
+		tree.insert(12);
+		tree.insert(8);
+		System.out.println("****** In Order: ");
+		tree.printInOrder();
+		System.out.println("****** Pre Order: ");
+		tree.printPreOrder();
+		System.out.println("****** Post Order: ");
+		tree.printPostOrder();
 	}
 
 }

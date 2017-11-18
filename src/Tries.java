@@ -25,7 +25,6 @@ public class Tries {
 		private void add(String s, int index) {
 			if (index == s.length()) return;
 			char current  = s.charAt(index);
-			int charCode = getChaIndex(current);
 			TrieNode child = getNode(current);
 			if (child == null) {
 				child = new TrieNode();
@@ -33,11 +32,31 @@ public class Tries {
 			}
 			child.add(s, index + 1);
 		}
+		
+		private boolean search(String word) {
+			if (!word.isEmpty()) {
+				char current = word.charAt(0);
+				TrieNode child = getNode(current);
+				if (child != null) {
+					if (word.length() == 1) {
+						return true;
+					}
+					return child.search(word.substring(1));
+				}
+				return false;
+			}
+			return false;
+		}
 	}
 	
 	public static void main(String[] args) {
-		
-
+		TrieNode trie = new TrieNode();
+		trie.add("jose");
+		trie.add("juan");
+		trie.add("pepe");
+		trie.add("pedro");
+		trie.add("eduardo");
+		System.out.println("Result: "+ trie.search("eduardo"));
 	}
 
 }
